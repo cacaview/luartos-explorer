@@ -55,8 +55,13 @@ function gui_guider.setup_ui(ui)
     -- setup_scr_file.lua should be required
     local setup_scr_file = require("setup_scr_file")
     setup_scr_file.setup_scr_file(ui)
+
+    -- events_init.lua should be required to bind events
+    local events_init = require("events_init")
+    events_init.events_init_file(ui)
     
-    lvgl.scr_load(ui.file)
+    -- Load the screen without animation
+    lvgl.scr_load_anim(ui.file, lvgl.SCR_LOAD_ANIM_NONE, 0, 0, false)
 end
 
 -- This function will be called from widgets_init.lua

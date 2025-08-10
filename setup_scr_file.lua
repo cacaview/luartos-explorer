@@ -29,41 +29,41 @@ function setup_scr_file.setup_scr_file(ui)
     -- Create screen: file
     ui.file = lvgl.obj_create(nil)
     lvgl.obj_set_size(ui.file, 480, 320)
-    lvgl.obj_set_scrollbar_mode(ui.file, lvgl.SCROLLBAR_MODE_OFF())
-    lvgl.obj_set_style_bg_opa(ui.file, 0, lvgl.PART_MAIN())
+    lvgl.obj_set_scrollbar_mode(ui.file, lvgl.SCROLLBAR_MODE_OFF)
+    lvgl.obj_set_style_bg_opa(ui.file, 0, lvgl.PART_MAIN)
 
     -- Create container: file_cont_1
     ui.file_cont_1 = lvgl.obj_create(ui.file)
     lvgl.obj_set_pos(ui.file_cont_1, 1, 0)
     lvgl.obj_set_size(ui.file_cont_1, 480, 320)
-    lvgl.obj_set_scrollbar_mode(ui.file_cont_1, lvgl.SCROLLBAR_MODE_OFF())
+    lvgl.obj_set_scrollbar_mode(ui.file_cont_1, lvgl.SCROLLBAR_MODE_OFF)
     local cont_style = {
         border_width = 2,
         border_color = lvgl.color_hex(0x2195f6),
         radius = 0,
         pad_all = 0
     }
-    create_and_apply_style(ui.file_cont_1, cont_style, lvgl.PART_MAIN())
+    create_and_apply_style(ui.file_cont_1, cont_style, lvgl.PART_MAIN)
 
     -- Create list: file_file_list
     ui.file_file_list = lvgl.list_create(ui.file_cont_1)
-    ui.file_file_list_item0 = lvgl.list_add_btn(ui.file_file_list, lvgl.SYMBOL_DIRECTORY(), "directory")
-    ui.file_file_list_item1 = lvgl.list_add_btn(ui.file_file_list, lvgl.SYMBOL_FILE(), "file")
-    ui.file_file_list_item2 = lvgl.list_add_btn(ui.file_file_list, lvgl.SYMBOL_FILE(), "file")
+    ui.file_file_list_item0 = lvgl.list_add_btn(ui.file_file_list, lvgl.SYMBOL_DIRECTORY, "directory")
+    ui.file_file_list_item1 = lvgl.list_add_btn(ui.file_file_list, lvgl.SYMBOL_FILE, "file")
+    ui.file_file_list_item2 = lvgl.list_add_btn(ui.file_file_list, lvgl.SYMBOL_FILE, "file")
     lvgl.obj_set_pos(ui.file_file_list, 35, 85)
     lvgl.obj_set_size(ui.file_file_list, 410, 200)
 
     -- Create list: file_operate (initially hidden, shown on long press)
     ui.file_operate = lvgl.list_create(ui.file_cont_1)
-    lvgl.list_add_btn(ui.file_operate, lvgl.SYMBOL_COPY(), "copy")
-    lvgl.list_add_btn(ui.file_operate, lvgl.SYMBOL_CUT(), "cut")
-    lvgl.list_add_btn(ui.file_operate, lvgl.SYMBOL_TRASH(), "delete")
-    lvgl.list_add_btn(ui.file_operate, lvgl.SYMBOL_PASTE(), "paste")
-    ui.file_operate_item4 = lvgl.list_add_btn(ui.file_operate, lvgl.SYMBOL_EDIT(), "edit")
-    ui.file_operate_item5 = lvgl.list_add_btn(ui.file_operate, lvgl.SYMBOL_CLOSE(), "cancel")
+    lvgl.list_add_btn(ui.file_operate, lvgl.SYMBOL_COPY, "copy")
+    lvgl.list_add_btn(ui.file_operate, lvgl.SYMBOL_CUT, "cut")
+    lvgl.list_add_btn(ui.file_operate, lvgl.SYMBOL_TRASH, "delete")
+    lvgl.list_add_btn(ui.file_operate, lvgl.SYMBOL_PASTE, "paste")
+    ui.file_operate_item4 = lvgl.list_add_btn(ui.file_operate, lvgl.SYMBOL_EDIT, "edit")
+    ui.file_operate_item5 = lvgl.list_add_btn(ui.file_operate, lvgl.SYMBOL_CLOSE, "cancel")
     lvgl.obj_set_pos(ui.file_operate, 152, 118)
     lvgl.obj_set_size(ui.file_operate, 158, 153)
-    lvgl.obj_add_flag(ui.file_operate, lvgl.OBJ_FLAG_HIDDEN())
+    lvgl.obj_add_flag(ui.file_operate, lvgl.OBJ_FLAG_HIDDEN)
 
     -- Create spangroup: file_spangroup_1
     ui.file_spangroup_1 = lvgl.spangroup_create(ui.file_cont_1)
@@ -86,12 +86,11 @@ function setup_scr_file.setup_scr_file(ui)
         text_color = lvgl.color_white(),
         text_font = lvgl.font_montserrat_16()
     }
-    create_and_apply_style(ui.file_btn_back, btn_style, lvgl.PART_MAIN())
+    create_and_apply_style(ui.file_btn_back, btn_style, lvgl.PART_MAIN)
 
 
     lvgl.obj_update_layout(ui.file)
     
-    events_init.events_init_file(ui)
 end
 
 return setup_scr_file
